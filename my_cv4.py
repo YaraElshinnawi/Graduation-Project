@@ -1,7 +1,7 @@
 from datetime import date
 from io import StringIO
 import sys, os
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, recall_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestRegressor
@@ -78,10 +78,10 @@ Labls =testvalue['Label'].replace(to_replace=['Y', 'N'], value=[1, 0])
 
 data['Labeled'] = Labeled
 testvalue['labls'] = Labls
-print(user)
+
 #testvalue.to_csv('Bb.csv')
 
-vectorizer = TfidfVectorizer(ngram_range=(2,2),lowercase=False,stop_words=stop,max_features=278)
+vectorizer = TfidfVectorizer(ngram_range=(2,2),lowercase=False,stop_words=stop)
 #for index,row in data.iterrows():
 # data['tri1']=[[data['trigram']]]
 # print(data['trigram'].shape)
@@ -97,24 +97,30 @@ Y = vectorizer.fit_transform(testvalue.review)
 Train_X, Test_X,Train_Y, Test_Y = model_selection.train_test_split(X,data['Labeled'],test_size=0.3,random_state=1)
 
 
-
-
 Naive = naive_bayes.BernoulliNB()
 Naive.fit(Train_X, Train_Y)
-predictions_NB =Naive.predict(Y)
-print("Naive predection",predictions_NB)
-print("Naive Bayes Accuracy Score -> ",Naive.score(Test_X, Test_Y)*100)
+predictions_NB =Naive.predict(Test_X)
+print("Naive Recall : ",recall_score(Test_Y,predictions_NB, average='weighted')*100 )
+print("Navive precision : ",precision_score(Test_Y, predictions_NB, average='weighted')*100)
+print("Naive Bayes Accuracy Score : ",accuracy_score(Test_Y, predictions_NB)*100)
+print("Naive predection : ",predictions_NB)
+print(confusion_matrix(Test_Y, predictions_NB))
 
 
 SVM = svm.SVC(kernel='linear' ,C = 1 )
 SVM.fit(Train_X,Train_Y)
-predictions_SVM = SVM.predict(Y)
-print("SVM predection",predictions_SVM)
-print("SVM Accuracy Score -> ",(SVM.score(Test_X, Test_Y)*100))
+predictions_SVM = SVM.predict(Test_X)
+print("SVM Recall : ",recall_score(Test_Y,predictions_SVM, average='weighted')*100 )
+print("SVM precision : ",precision_score(Test_Y, predictions_SVM, average='weighted')*100)
+print("SVM Accuracy Score : ",(accuracy_score(Test_Y, predictions_SVM)*100))
+print("SVM predection : ",predictions_SVM)
+print(confusion_matrix(Test_Y, predictions_SVM))
 
-
-model = KNeighborsClassifier(n_neighbors=5)
+model = KNeighborsClassifier(n_neighbors=7)
 model.fit(Train_X,Train_Y)
-predictions_KNN = model.predict(Y)
-print("KNN prediction",predictions_KNN)
-print("KNN Accuracy score->",model.score(Test_X, Test_Y)*100)
+predictions_KNN = model.predict(Test_X)
+print("KNN Recall : ",recall_score(Test_Y,predictions_KNN, average='weighted')*100 )
+print("KNN precision : ",precision_score(Test_Y, predictions_KNN, average= 'weighted')*100)
+print("KNN Accuracy score : ",accuracy_score(Test_Y, predictions_KNN)*100)
+print("KNN prediction : ",predictions_KNN)
+print(confusion_matrix(Test_Y, predictions_KNN))
