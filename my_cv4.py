@@ -96,12 +96,7 @@ Y = vectorizer.fit_transform(testvalue.review)
 
 Train_X, Test_X,Train_Y, Test_Y = model_selection.train_test_split(X,data['Labeled'],test_size=0.3,random_state=1)
 
-classifier = LogisticRegression()
-classifier.fit(Train_X, Train_Y)
-score = classifier.score(Test_X,Test_Y)*100
-predictions_Log = classifier.predict(Y)
-print("Logistic Regression prediction", predictions_Log)
-print("Logistic Regression Accuracy Score -> ", score)
+
 
 
 Naive = naive_bayes.BernoulliNB()
