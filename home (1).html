@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+   <head>
+	    <title>Reviews</title>
+     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+   <div class="container"><br>
+      <center>
+        <h2>WELCOME</h2>
+      </center>
+    </div>
+
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+     <form action="{{ url_for('predict')}}" method="POST">
+		<p>Enter Your Message Here</p>
+		 <!-- <input type="text" name="comment"/> -->
+
+
+		 <textarea name="message" class="form-control" rows="4" cols="50" type="text"></textarea>
+		<br/>
+
+		 <b>Date:</b>
+      <input name="Date" type="Date" class="form-control" placeholder="Enter date" required>
+
+	  </br>
+	  </br>
+
+		   <b>ra1ID: </b>
+      <input type= "text" name= "r1ID" id="r1" placeholder="Enter rate id" >
+      </br>
+	  </br>
+
+
+		    <center>
+          <button type="submit" class="btn btn-success">Predict</button>
+        </center>
+	</form>
+	</div>
+	</div>
+	</div>
+   </body>
+
+</html>

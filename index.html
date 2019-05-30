@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login</title>
+
+     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+</head>
+    <div class="container" style="background-image: url({{url_for('static', filename='d.jpg')}})" height=" auto" ><br>
+
+<form action="/index" method="POST">
+
+
+            <br class="col-md-6 col-md-offset-3 text-center">
+
+                <p >Hello <b>{{ session_user_name }}</b></p>
+
+
+
+
+            <div class=" container">
+
+                     <b><a href="/reviews" name="holiday" style="color:black" value="1" >Holiday Inn</a></b>
+                <br>
+            <!-- <div class="form-control">-->
+                <img src="{{url_for('static', filename='h1.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='h2.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='h3.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='h4.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                                 <img src="{{url_for('static', filename='h5.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+
+      </div>
+
+    </br>
+            </br>
+                 <div class=" container">
+                     <b><a href="/reviews" name="four" style="color:black" value="2" >Four Session</a></b>
+<br>
+            <!-- <div class="form-control">-->
+        <img src="{{url_for('static', filename='f1.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='f2.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='f3.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='f4.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='f5.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+
+      </div>
+
+            </br>
+            </br>
+                 <div class=" container">
+                <b><a href="/reviews" name="hilton" style="color:black" value="3" >Hilton</a></b>
+                     <br>
+            <!-- <div class="form-control">-->
+        <img src="{{url_for('static', filename='a1.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='a2.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='a3.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='a4.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+                <img src="{{url_for('static', filename='a5.jpg')}}"  alt="Cinque Terre" width="150" height="150" />
+
+      </div>
+<br>
+    <br>
+
+             <div class="container">
+               <b> <a href="/logout" style="color:black">Logout</a></b>
+</div>
+
+</form>
+    </div>
+    </div>
+
+</body>
+
+</html>
